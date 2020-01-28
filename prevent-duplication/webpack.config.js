@@ -6,6 +6,7 @@ const webpack = require('webpack')
 module.exports = {
   entry: {
     home: path.resolve(__dirname, 'src/js/index.js'),
+    contact: path.resolve(__dirname, 'src/js/contact.js'),
   },
 
   mode: 'development',
@@ -83,5 +84,13 @@ module.exports = {
       title: 'Webpack Dev Server',
       template: path.resolve(__dirname, 'index.html')
     })
-  ]
+  ],
+
+  optimization: {
+    splitChunks: {
+      chunks: 'all',
+      minSize: 0,
+      name: 'commons'
+    }
+  }
 }
